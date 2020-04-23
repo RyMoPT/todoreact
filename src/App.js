@@ -2,7 +2,10 @@ import React from 'react';
 import './App.css';
 
 
-
+function Testfunc() {
+  for (var item of this.state.taskList) {
+    console.log(item)}
+  }
 
 class App extends React.Component {
   constructor(props){
@@ -16,7 +19,20 @@ class App extends React.Component {
   }
 
 
+  deleteItem(id) {
+    console.log(id);
+    const list = [...this.state.taskList];
+
+    const updatedList = list.filter(item => item.id !==id)
+
+    this.setState({
+      taskList: updatedList,
+    })
+
+  }
+
   addItem(e) {
+    
     console.log(this.props)
     console.log(e.target)
     e.preventDefault();
@@ -35,11 +51,14 @@ class App extends React.Component {
 
     console.log(this.state.list)
     this.setState({
-      list,
+      taskList: list,
       newItem: ""
     });
+    return (
+      <Testfunc/>
+    )
   }
-
+  
   updateInput(key, value) {
     this.setState({
       [key]:value
@@ -60,7 +79,10 @@ class App extends React.Component {
         <div className="noProjectSelected">
             {/* <h3>Please select or create a new project!</h3> */}
         </div>
-        <form className="taskForm" data-task-form>
+        <form 
+        className="taskForm" 
+        data-task-form
+        onSubmit={(e)=> this.addItem(e)}>
             <input type="text" 
             className="taskFormInput" 
             placeholder="What do you need to do?" 
@@ -72,10 +94,21 @@ class App extends React.Component {
             <input type="submit" 
             className="submitTaskBtn" 
             value="Add Task" 
-            onClick={(e)=> this.addItem(e)}
+            
             />
         </form>
     <ul className="itemList" data-task-list>
+      {this.state.taskList.map(item => {
+        return (
+          <li key={item.id}>
+            {item.value}
+            <button 
+            className="trashBtn"
+            onClick = {()=> this.deleteItem(item.id)}
+            >Del</button>
+          </li>
+        )
+      })}
         <li>test item 1 <button className="trashBtn"><i className="fas fa-trash"></i></button></li>
         <li>test item 2</li>
         <li>test item 3</li>
@@ -88,22 +121,6 @@ class App extends React.Component {
     </div>
   );
 }
-}
-
-
-
-
-function SubmitTask (e) {
-  e.preventDefault();
-  console.log('test');
-  const taskFormInput = document.querySelector('[data-task-form-input]');
-  const tasks = this.state.tasks.slice();
-  this.setState({
-      tasks: tasks.concat({
-          tasks: taskFormInput,
-      })
-  })
-
 }
 
 export default App;
