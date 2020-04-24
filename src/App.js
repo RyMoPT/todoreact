@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faMoon } from '@fortawesome/free-solid-svg-icons'
 
 
 function Testfunc() {
@@ -15,12 +16,13 @@ class App extends React.Component {
     this.state= {
       newItem:"",
       taskList:[],
+      isNightModeOn: false
     }
     // this.addItem = this.addItem.bind(this);
 
   }
 
-
+  
   deleteItem(id) {
     console.log(id);
     const list = [...this.state.taskList];
@@ -67,16 +69,35 @@ class App extends React.Component {
     })
   }
   render(){
+    const body = document.body;
+    body.className = this.state.isNightModeOn ? "bodyNight" : "";
+
   return (
     <div>
-      <div className="wrapper">
+      <div className={
+        this.state.isNightModeOn ? "wrapperNight" : "wrapper"
+      }>
 
-      <div className="header">
-      <h1><u>To Do List</u></h1>
+      <div 
+      className={
+        this.state.isNightModeOn ? "headerNight" : "header"
+      }
+      >
+      <h1>
+        To Do List
+        <button className= "toggleNightBtn" onClick={ () =>this.setState({
+          isNightModeOn: !this.state.isNightModeOn,
+        })}>
+      
+          <FontAwesomeIcon icon={faMoon} />
+        </button>
+        </h1>
       </div>
 
-    <div className="taskContainer" data-task-container>
-    <h2><u>TASKS</u></h2>   
+    <div className={
+        this.state.isNightModeOn ? "taskContainerNight" : "taskContainer"
+      } >
+    {/* <h2><u>TASKS</u></h2>    */}
     <div className="content-right-group">
         <div className="noProjectSelected">
             {/* <h3>Please select or create a new project!</h3> */}
