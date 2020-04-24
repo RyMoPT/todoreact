@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 function Testfunc() {
@@ -104,14 +106,12 @@ class App extends React.Component {
             {item.value}
             <button 
             className="trashBtn"
-            onClick = {()=> this.deleteItem(item.id)}
-            >Del</button>
+            onClick = {()=> this.deleteItem(item.id)}>
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
           </li>
         )
       })}
-        <li>test item 1 <button className="trashBtn"><i className="fas fa-trash"></i></button></li>
-        <li>test item 2</li>
-        <li>test item 3</li>
     </ul>
     </div> 
 </div>
