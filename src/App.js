@@ -103,12 +103,18 @@ class App extends React.Component {
       {this.state.taskList.map(item => {
         return (
           <li key={item.id}>
-            {item.value}
-            <button 
+            <label className='labelContainer'>
+              <input type='checkbox' className='checkbox'/>
+                <span className='checkmark'></span>
+                <span>{item.value}
+                <button 
             className="trashBtn"
             onClick = {()=> this.deleteItem(item.id)}>
               <FontAwesomeIcon icon={faTrash} />
             </button>
+                </span>
+            </label>
+          
           </li>
         )
       })}
