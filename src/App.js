@@ -74,9 +74,6 @@ class App extends React.Component {
 
   return (
     <div>
-      <div className={
-        this.state.isNightModeOn ? "wrapperNight" : "wrapper"
-      }>
 
       <div 
       className={
@@ -94,6 +91,11 @@ class App extends React.Component {
         </h1>
       </div>
 
+      <div className={
+        this.state.isNightModeOn ? "wrapperNight" : "wrapper"
+      }>
+
+    
     <div className={
         this.state.isNightModeOn ? "taskContainerNight" : "taskContainer"
       } >
