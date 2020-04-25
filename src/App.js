@@ -99,9 +99,7 @@ class App extends React.Component {
       } >
     {/* <h2><u>TASKS</u></h2>    */}
     <div className="content-right-group">
-        <div className="noProjectSelected">
-            {/* <h3>Please select or create a new project!</h3> */}
-        </div>
+
         <form 
         className="taskForm" 
         data-task-form
