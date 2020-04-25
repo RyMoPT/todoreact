@@ -3,8 +3,6 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
-
 
 class App extends React.Component {
   constructor(props){
