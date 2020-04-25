@@ -198,6 +198,7 @@ footer {
     padding: 0.5rem;
     box-shadow: 2px 2px;
     background-color: #2979ffc7;
+    margin-left: 10px;
 
 }
 
@@ -317,6 +318,7 @@ input[type=checkbox]:checked ~ span{
 
 .submitTaskBtn{
   margin-top: 15px;
+  margin-left: 0px;
 }
 
 }

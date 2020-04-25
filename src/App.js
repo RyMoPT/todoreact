@@ -3,12 +3,8 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faSun } from '@fortawesome/free-solid-svg-icons'
 
-
-function Testfunc() {
-  for (var item of this.state.taskList) {
-    console.log(item)}
-  }
 
 class App extends React.Component {
   constructor(props){
@@ -58,9 +54,6 @@ class App extends React.Component {
       taskList: list,
       newItem: ""
     });
-    return (
-      <Testfunc/>
-    )
   }
   
   updateInput(key, value) {
@@ -84,10 +77,10 @@ class App extends React.Component {
         To Do List
         <button className= "toggleNightBtn" onClick={ () =>this.setState({
           isNightModeOn: !this.state.isNightModeOn,
-        })}>
-      
-          <FontAwesomeIcon icon={faMoon} />
+        })}>      
+          <div><FontAwesomeIcon icon={faMoon}/></div>
         </button>
+        
         </h1>
       </div>
 
@@ -99,7 +92,6 @@ class App extends React.Component {
     <div className={
         this.state.isNightModeOn ? "taskContainerNight" : "taskContainer"
       } >
-    {/* <h2><u>TASKS</u></h2>    */}
     <div className="content-right-group">
 
         <form 
