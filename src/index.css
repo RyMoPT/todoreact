@@ -1,18 +1,18 @@
 body {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Roboto', sans-serif;
   background-color: rgb(255, 255, 255);
   transition-duration: 0.4s;
   margin: 0px;
 }
 
 .bodyNight {
-  font-family: 'Indie Flower', cursive;
   background-color: #272727;
   transition-duration: 0.4s;
 }
 
 h1 {
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 .wrapper {
   display: grid;
@@ -49,6 +49,10 @@ h1 {
   color: whitesmoke;
   transition: all 0.4s;
   box-shadow: 1px 1px;
+  float: right;
+  margin-top: 1.2rem;
+  padding: 10px;
+  margin-right: 10px;
 }
 
 .headerNight {
@@ -77,6 +81,7 @@ h1 {
   overflow: visible;
   border: 2px solid black;
   box-shadow: 5px 10px 18px #888888;
+  margin-top: 40px;
 }
 
 .taskContainerNight {
@@ -90,6 +95,8 @@ h1 {
   overflow: visible;
   border: 2px solid black;
   box-shadow: 5px 10px 18px #888888;
+  margin-top: 40px;
+
 }
 
 .content-left {
@@ -189,6 +196,7 @@ footer {
     border: none;
     padding: 0.5rem;
     box-shadow: 2px 2px;
+    background-color: #2979ffc7;
 
 }
 
@@ -313,6 +321,13 @@ input[type=checkbox]:checked ~ span{
 
 }
 
+.toggleNightBtn {
+  margin-top: 1em;
+  padding: 5px;
+}
 
+.submitTaskBtn{
+  margin-top: 15px;
+}
 
 }
