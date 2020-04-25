@@ -279,12 +279,11 @@ input[type=checkbox]:checked ~ span{
 }
 
 @media (max-width: 415px) {
-  .modal-content {
-    width: 50%; 
-  }
-
   .header {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+  }
+  .headerNight {
+    font-size: 1.6rem;
   }
 
   .wrapper {
@@ -310,17 +309,6 @@ input[type=checkbox]:checked ~ span{
 }
 
   
-.headerNight {
-  grid-area: header;
-  margin: auto;
-  margin-bottom: 0.25rem;
-  font-size: 1.2rem;
-  text-align: center;
-  background-color: #2979ffc7;
-  color: black;
-  transition-duration: 0.4s;
-
-}
 
 .toggleNightBtn {
   margin-top: 1em;
