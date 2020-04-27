@@ -9,33 +9,29 @@ class App extends React.Component {
     super(props);
     this.state= {
       newItem:"",
-      taskList:[],
-      isNightModeOn: false
+      taskList: JSON.parse(localStorage.getItem('storage.key')) || [],
+      isNightModeOn: false,
     }
-    // this.addItem = this.addItem.bind(this);
-
   }
 
-  
   deleteItem(id) {
     console.log(id);
     const list = [...this.state.taskList];
 
     const updatedList = list.filter(item => item.id !==id)
+    localStorage.setItem('storage.key',JSON.stringify(updatedList))
 
     this.setState({
       taskList: updatedList,
     })
-
   }
+
 
   addItem(e) {
     
     console.log(this.props)
     console.log(e.target)
     e.preventDefault();
-
-    // this.props.preventDefault();
     const newItem = {
       id: 1 + Math.random(),
       value: this.state.newItem.slice()
@@ -47,11 +43,15 @@ class App extends React.Component {
     list.push(newItem)
     console.log(list)
 
-    console.log(this.state.list)
+    localStorage.setItem('storage.key',JSON.stringify(list))
+    
+    console.log(this.state.taskList)
     this.setState({
       taskList: list,
       newItem: ""
     });
+    console.log(this.state.taskList)
+
   }
   
   updateInput(key, value) {
@@ -62,7 +62,6 @@ class App extends React.Component {
   render(){
     const body = document.body;
     body.className = this.state.isNightModeOn ? "bodyNight" : "";
-
   return (
     <div>
 
@@ -101,16 +100,16 @@ class App extends React.Component {
             placeholder="What do you need to do?" 
             value = {this.state.newItem}
             onChange = { e => this.updateInput("newItem", e.target.value)}
-            maxLength="32"  data-task-form-input 
+            maxLength="32"  
             required 
             />
             <input type="submit" 
             className="submitTaskBtn" 
             value="Add Task" 
-            
             />
         </form>
     <ul className="itemList" data-task-list>
+      
       {this.state.taskList.map(item => {
         return (
           <li key={item.id}>
